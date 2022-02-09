@@ -1,0 +1,19 @@
+on: workflow_dispatch
+name: Destroy ACR
+jobs:
+  delete-cluster:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@main
+
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS_SUPER_SP }}
+    
+    - name: Destroy ACR with AZ CLI
+      uses: Azure/cli@v1
+      with:
+        inlineScript: |
+          az aks delete --name ${{ secrets.ACR }} --resource-group ${{ secrets.AZURE_RG }} --yes
