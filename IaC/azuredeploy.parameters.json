@@ -6,7 +6,7 @@
         "value": "oaacrdemo"
       },
       "acrAdminUserEnabled": {
-        "value": false
+        "value": true
       }
     }
   }
