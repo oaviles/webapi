@@ -1,7 +1,7 @@
 on: workflow_dispatch
 name: Destroy ACR
 jobs:
-  delete-cluster:
+  delete-acr:
     runs-on: ubuntu-latest
     steps:
 
@@ -16,4 +16,4 @@ jobs:
       uses: Azure/cli@v1
       with:
         inlineScript: |
-          az aks delete --name ${{ secrets.ACR }} --resource-group ${{ secrets.AZURE_RG }} --yes
+          az acr delete --name ${{ secrets.ACR }} --resource-group ${{ secrets.AZURE_RG }} --yes
