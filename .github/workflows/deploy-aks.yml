@@ -19,6 +19,5 @@ jobs:
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
-        template: ./IaC/azuredeploy.json
-        # parameters: storageAccounts_name=oamx
+        template: ./IaC/azuredeploy-acr.json
         parameters: ./IaC/azuredeploy.parameters.json
