@@ -1,14 +1,10 @@
-# DevSquad Microservice Project
+# DevSquad Container Project
 
-This is a collection of sample projects for Cloud Application Developer using Azure Cloud Platform. The sample projects are arranged in different topics about microservice development and deployment on Azure Kubernetes Service supported by Secure DevOps Practices.
+This is a collection of sample projects for Cloud Application Developer using Azure Cloud Platform. The sample project is arranged in different topics about container development and push to Azure Container Registry supported by Secure DevOps Practices.
 
-Deploy Microservice on Azure Kubernetes Service, reference architecture:
-[Deploy microservice on AKS](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
-![](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-microservices/images/aks.png)
-
-GitOps for Azure Kubernetes Service, reference architecture:
-[GitOps for AKS](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
-![](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/gitops-aks/media/gitops-blueprint-aks.svg)
+Deploy Microservice Image to Azure Container Registry, reference architecture:
+[CI/CD for containers](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/cicd-for-containers)
+![](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/media/cicd-for-containers.png)
 
 ### Check More DevSquad Projects
 * [DevSquad Main Project](https://github.com/oaviles/DevSquad)
