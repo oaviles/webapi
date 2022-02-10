@@ -22,8 +22,7 @@ namespace container_sample.Controllers
         [HttpGet]
         public IEnumerable<ApiGuid> Get()
         {
-            Guid guid = new Guid();
-            return guid;
+            return guid = new Guid();
         }
     }
 }
