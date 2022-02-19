@@ -11,20 +11,19 @@ jobs:
   containerd:
     runs-on: ubuntu-latest
     steps:
-       -
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@v2
-      -
-        name: Set up QEMU
+       
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
-      -
-        name: Set up Docker Buildx
+      
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Set up containerd
+      
+      - name: Set up containerd
         uses: crazy-max/ghaction-setup-containerd@v1
-      -
-        name: Build Docker image
+      
+      - name: Build Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -32,11 +31,11 @@ jobs:
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           tags: ${{ env.ACR_REGISTRY }}/${{ env.image_name }}:${{ env.tag }}
           outputs: type=oci,dest=/tmp/image.tar
-      -
-        name: Import image in containerd
+      
+      - name: Import image in containerd
         run: |
           sudo ctr i import --base-name ${{ env.ACR_REGISTRY }}/${{ env.image_name }}:${{ env.tag }} --digests --all-platforms /tmp/image.tar
-      -
-        name: Push image with containerd
+      
+      - name: Push image with containerd
         run: |
           sudo ctr i push --user "${{ secrets.ACR_USERNAME }}:${{ secrets.ACR_PASSWORD }}" ${{ env.ACR_REGISTRY }}/${{ env.image_name }}:${{ env.tag }}
