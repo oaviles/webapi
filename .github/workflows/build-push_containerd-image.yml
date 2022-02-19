@@ -35,6 +35,7 @@ jobs:
       - name: Import image in containerd
         run: |
           sudo ctr i import --base-name ${{ env.ACR_REGISTRY }}/${{ env.image_name }}:${{ env.tag }} --digests --all-platforms /tmp/image.tar
+          echo ${{ env.ACR_REGISTRY }}/${{ env.image_name }}:${{ env.tag }}
       
       - name: Push image with containerd
         run: |
