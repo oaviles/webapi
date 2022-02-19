@@ -30,12 +30,12 @@ jobs:
           context: .
           file: ./Dockerfile
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
-          tags: docker.io/crazymax/diun:latest
+          tags: ${{ env.ACR_REGISTRY }}/${{ env.image_name }}:${{ env.tag }}
           outputs: type=oci,dest=/tmp/image.tar
       -
         name: Import image in containerd
         run: |
-          sudo ctr i import --base-name docker.io/crazymax/diun --digests --all-platforms /tmp/image.tar
+          sudo ctr i import --base-name ${{ env.ACR_REGISTRY }}/${{ env.image_name }}:${{ env.tag }} --digests --all-platforms /tmp/image.tar
       -
         name: Push image with containerd
         run: |
